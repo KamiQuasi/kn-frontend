@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless Playground</title>
+</head>
+<body>
+  <h1>Serverless Playground</h1>
+  <form>
+  <input placeholder="Backend Server URL">
+  <button>Get Response Headers</button>
+  </form>
+  <pre id="response"></pre>
+  <script>
+    const frmApp = document.querySelector('form');
+    const txtUrl = document.querySelector('input');
+    const btnResp = document.querySelector('button');
+    const respNode = document.getElementById('response');
+    
+    document.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const resp = await fetch(txtUrl.value);
+      const data = await resp.json();
+      respNode.innerHTML = JSON.stringify(data,2);
+    })
+
+  </script>
+</body>
+</html>
