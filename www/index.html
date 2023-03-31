@@ -21,7 +21,7 @@
     
     document.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const resp = await fetch(txtUrl.value);
+      const resp = await fetch(txtUrl.value, {mode:"no-cors"});
       const data = await resp.json();
       respNode.innerHTML = JSON.stringify(data,2);
     })
